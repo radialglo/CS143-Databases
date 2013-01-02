@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+
+.icon-pencil:before { content: '\270e'; } /* '✎' */
+.icon-help:before { content: '\2753'; } /* '❓' */
+.icon-user-add:before { content: '\e700'; } /* '' */
+.icon-doc-text:before { content: '📄'; } /* '\1f4c4' */

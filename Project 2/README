@@ -1,0 +1,36 @@
+/**
+ * README
+ *
+ * Anthony Su 803912902 antchovee@gmail.com
+ * Vincent Kyi 803916486 vincekyi@gmail.com
+ *
+ *
+ */
+
+
+
+Useful Information:
+1. For Part C, we chose to limit the number of records to be displayed to 100 because otherwise, it would
+have printed over 29550 records.
+2. We chose to use radio buttons instead of a dropdown window because it is more convenient for the users to
+choose between searching for a paper or an author.
+3. We don't have any html files because all of our pages are generated dynamically using the query parameter ?page=value 
+
+
+/*   ====   */
+//Page Breakdown
+/*   ====   */
+
+HOME: http://cs143.seas.ucla.edu:8080/cs143vky/servlet/Scholar?page=home
+
+I1: http://cs143.seas.ucla.edu:8080/cs143vky/servlet/Scholar?page=author_form
+I2: hrttp://cs143.seas.ucla.edu:8080/cs143vky/servlet/Scholar?page=citation_form
+I3: http://cs143.seas.ucla.edu:8080/cs143vky/servlet/Scholar?page=question_form
+I4: http://cs143.seas.ucla.edu:8080/cs143vky/servlet/Scholar?page=paper_form
+
+B1: http://cs143.seas.ucla.edu:8080/cs143vky/servlet/Scholar?page=paper&paper_ID=XXXXX , where XXXXX is a variable int
+
+B2: http://cs143.seas.ucla.edu:8080/cs143vky/servlet/Scholar?page=author&author_ID=XXXXXX , where XXXXX is a variable int
+
+S1: this is printed on every page at the top as a search bar
+

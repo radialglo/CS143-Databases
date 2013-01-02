@@ -1,0 +1,67 @@
+
+For Query: 
+SELECT COUNT(*)
+FROM Author AS A, CoAuthored AS C
+WHERE A.first_name = ‘John’ AND
+C.author1ID = A.ID
+
+The Time without index is 0.11246500 sec. 
+
+If we use the index: 
+	ALTER TABLE Author ADD UNIQUE KEY (first_name);
+
+We get a time of 0.00011900 sec.
+Reason: first_name is one of the attributes of Author and is used in the query
+Performance:  This index should improve the query because it creates an index 
+on first_name, which is one of the conditions used in the query.  Since it is
+indexed on author_name, searching for 'John' will be faster.
+ 
+If we use the index:
+	ALTER TABLE Author ADD UNIQUE KEY (ID);
+we get a time of 0.00012800 sec.
+Reason: ID is one of the attributes of Author and is used in the query
+
+Performance: Since ID is used when joining, searching for the ID
+would be faster since the look up time for ID has decreased.  Therefore, when 
+applying the join C.author1ID=A.ID, looking up A.ID would be faster.
+
+If we compare these 2 indexes, it makes sense for the index on first_name to be
+faster because it reduces the number of records in Author that you have to use
+when you join Author and CoAuthored.
+
+
+
+Second Query
+
+SELECT COUNT(*)
+FROM Author
+WHERE first_name = ‘Kevin’;
+
+The time without index is 0.00271600 sec.
+
+If we use the index:
+	ALTER TABLE Author ADD UNIQUE KEY (first_name);
+
+We get a time of 0.00011300 sec.
+Reason: first_name is an attribute of Author and is used in the query
+
+Performance: This index should improve the query because it creates an index 
+on first_name, which is one of the conditions used in the query.  Since it is
+indexed on author_name, searching for 'Kevin' will be faster.
+
+If we use the index:
+	ALTER TABLE Author ADD UNIQUE KEY (author_name);
+
+We get a time of 0.00014000 sec.
+Reason: author_name is very similar to first_name except author_name includes
+the last name.  But if we index by author_name, the first_name might also be
+grouped the same way.
+
+Performance: This index should improve the query because it creates an index 
+on author_name, which, as mentioned before, is very similar to first_name.  
+And since first_name is one of the conditions used in the query, seraching for
+'Kevin' will be faster.
+
+Indexing on first_name should be faster because indexing on author_name does not
+guarantee that you will immediately find the person of interest.  This is because
+author_names include the last name also.

@@ -1,0 +1,15 @@
+/**
+ * P2B.txt
+ *
+ * Anthony Su 803912902 antchovee@gmail.com
+ * Vincent Kyi 803916486 vincekyi@gmail.com
+ *
+ *
+ */
+
+For P2B.html, we created a select tag with 5 options.
+The select tag has a name sel which is parameter to the server when submitted.
+
+For P2B.java, we renamed the class P2B to correspond to the file name.
+We also changed the servlet title to P2B Servlet, and the getParameter to sel to correspond to the select tag.
+We also added strong tags to put emphasis on the selected option.

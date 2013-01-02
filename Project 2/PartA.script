@@ -1,0 +1,103 @@
+/*
+--set profiling=1;
+*/
+DROP TABLE IF EXISTS Author, CoAuthored, Authored, Cites, Paper;
+
+CREATE TABLE Author(
+	ID int(5), 
+	author_name varchar(200), 
+	preferred_name varchar(200), 
+	first_name varchar(200), 
+	last_name varchar(200));
+
+/*
+CREATE INDEX author_index 
+ON Author(first_name);
+*/
+/*
+--ALTER TABLE Author ADD UNIQUE KEY (author_name);
+*/
+/*
+CREATE INDEX author_index 
+ON Author(first_name);
+CREATE INDEX author1_index 
+ON Author(last_name);
+*/
+/*
+CREATE INDEX author_index 
+ON Author(ID);
+*/
+
+LOAD DATA LOCAL INFILE '/u/cs/class/cs143/cs143ta/proj1/data/Author.csv' INTO TABLE Author FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n';
+
+CREATE TABLE CoAuthored(
+	ID int(5), 
+	author1ID int(5), 
+	author2ID int(5), 
+	paper_ID int(5));
+
+/*
+CREATE INDEX author_index 
+ON CoAuthored (author1ID);
+*/
+/*
+ALTER TABLE CoAuthored ADD UNIQUE KEY (author1ID);
+*/
+LOAD DATA LOCAL INFILE '/u/cs/class/cs143/cs143ta/proj1/data/CoAuthored.csv' INTO TABLE CoAuthored FIELDS TERMINATED BY ',';
+
+
+CREATE TABLE Authored(
+	ID int(5), 
+	AuthorID int(5), 
+	paperID int(5), 
+	Email varchar(200), 
+	rank_in_author_list int(5), 
+	original_name_str varchar(200), 
+	email_domain varchar(200), 
+	email_country varchar(200), 
+	affiliation_str varchar(200), 
+	affil varchar(200));
+
+LOAD DATA LOCAL INFILE '/u/cs/class/cs143/cs143ta/proj1/data/Authored.csv' INTO TABLE Authored FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"';
+
+CREATE TABLE Cites(
+	ID int(5), 
+	paper1ID int(5), 
+	paper2ID int(5), 
+	is_self_citation int(5));
+
+LOAD DATA LOCAL INFILE '/u/cs/class/cs143/cs143ta/proj1/data/Cites.csv' INTO TABLE Cites FIELDS TERMINATED BY ',';
+
+CREATE TABLE Paper(
+	ID int(5), 
+	paper_id int(5), 
+	title_str varchar(200), 
+	authors_str varchar(200), 
+	area varchar(200), 
+	num_abstract_wds int(5), 
+	num_authors int(5), 
+	num_kb int(5), 
+	num_pages int(5), 
+	num_revisions int(5), 
+	num_title_wds int(5), 
+	comments_str varchar(200), 
+	submit_date date, 
+	submitter_email varchar(200), 
+	submitter_name varchar(200));
+
+LOAD DATA LOCAL INFILE '/u/cs/class/cs143/cs143ta/proj1/data/Paper.csv' INTO TABLE Paper FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"';
+
+/*
+SELECT COUNT(*)
+FROM AuthorAS A, CoAuthored AS C
+WHERE A.first_name = 'John' AND
+C.author1ID = A.ID;
+*/
+/*
+SELECT COUNT(*)
+FROM Author
+WHERE first_name = 'Kevin';
+*/
+/*
+--show profiles;
+*/

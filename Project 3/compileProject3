@@ -1,0 +1,8 @@
+#!/bin/bash
+# script to set java options, compile src, and update xml file
+# Anthony Su | Vincent Kyi
+
+ export JAVA_TOOL_OPTIONS='-Xmx128m'
+ export CLASSPATH=/usr/share/tomcat6/lib/tomcat6-servlet-2.5-api-6.0.24.jar
+ javac  CMT.java PrintView.java;
+ touch ../web.xml;

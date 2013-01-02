@@ -1,4 +1,4 @@
-# CS143 Databases 
+# CS143 Database Systems 
 ### Fall 2012
 ##### Developers: 
 
@@ -22,8 +22,7 @@
       WHERE first_name = ‘Kevin’;
     
 
-  b. Setup a simple web interface that uses a Java Servlet
-       Modify web.xml appropriately for configurations.    
+  b. Setup a simple web interface that uses a Java Servlet. Modify web.xml appropriately for configurations.    
 
   c. Simple JDBC exercise to print out all papers in the DB  
   d. Write a **web application** using the JDBC(Java Database Connectivity) API for input, browsing, and search functionalities of research papers
@@ -34,7 +33,7 @@
    Handwritten CSS, icon fonts from [fontello](http://www.fontello.com), and wood pattern from [Subtle Patterns](http://www.subtlepatterns.com)
 
 ###### 2. Project 3
-  Create a **database design** and implement an **web application** for a simplified Conference Management Tooltkit [CMT](http://cmt.research.microsoft.com/cmt/).  
+  Create a **database design** and implement a **web application** for a simplified Conference Management Tooltkit [CMT](http://cmt.research.microsoft.com/cmt/).  
 + Multiple roles such as Chair, Reviewer, Author  
 + Abstract and paper submission  
 + Management of Reviewers  
